@@ -1,57 +1,45 @@
-# Code Review: SQL
+# Code Review: BigQuery and the Cloud
 
 #### By Drew White
 
-#### Code Review - Demonstrating use of SQL to perform various queries that include: Selecting values, Sub-queries, Manipulating values, Aggregation functions, and Joins. 
-
-<br>
+#### Code Review - Demonstrating use of BigQuery and the Cloud with a visualization created using Looker. 
 
 ## Technologies Used
 
+* Google Cloud
+* Big Query
+* Looker
 * SQL
-* MySQL
-* MariaDB
-* Beekeeper
-* Docker
+* Python
+* Pandas
+* Jupyter Notebooks
 
 </br>
 
-## Description
+## Description:
+### Part 1:  
+* Using Python, creates a BigQuery client in `main.ipynb`.  
+* In BigQuery, makes a new dataset called `plants` in project directory.  
+* In `main.ipynb`, uses client to list the datasets in the BigQuery project. Confirms that the new `plants` dataset is there.  
+* In `main.sql`, writes SQL code that will create a table in the plants dataset called `flower_shop`.  
+* In `main.sql`, writes SQL code that will give table schema : `plant_id`, `species_name`, `variety_name`, `zone`, `price`.  
+* In `main.sql`, writes SQL code that will insert values into `flower_shop` table.  
+* Run code from `main.sql` in BigQuery so it add new table with values.  
+* In `main.ipynb` writes Python code: `.list_tables()` to verify that `flower_shop` was created.  
+* In `main.ipynb` writes Python code: `.get_table()` to verify schema of `flower_shop`.
 
-Selecting Values
-- Select the name and `part_num` columns from the `parts` table. Show only names that include the substring 'Hair', and order them with the `part_num` in descending order
-
-- From the `sets` table, select all the sets that included the word 'Showdown' in the name between 1990 and 2015
-
-- Aliasing the `part_categories` table as `p`, show the id and name of the values in that table where the name includes the word 'Bricks'
-
-Sub-queries
-- Select all the ids from the `themes` table with 'Pirates' or 'Star Wars' in the name. This is your sub-query. Then show the names of all the `sets` where the `theme_id` matches an id in that sub-query.
-
-- Select the ids of the values in the `inventories` table that have more than one version (i.e. `version > 1`). This is your sub-query. Then select everything from the `inventory_parts` table where the `inventory_id` matches an id in that sub-query. Limit the output to 10 rows.
-
-Manipulate Values in Select
-- Aliasing the `sets` table as `s`, select the year and name of the values in that table that include the substring 'Batman'. Concatenate three exclamation marks to the end of each name, and make all the names upper case.
-
-- For every quantity value greater than 1 in the `inventory_parts` table, double the value of the quantity. Limit your output to 20 rows, and order it by quantity.
-
-Aggregation Functions
-- Count the total number of transparent colors in the `colors` table (Note: `is_trans` is a binary value, and you want to show how many rows there are where it equals 1).
-
-- Show the sum of all the parts for all the `sets` that came out since the year 2000.
-
-- Show the average number of parts for `sets` that came out since the year 2000.
-
-- Using `GROUP BY`, show the average number of parts for each `theme_id` in sets.
-
-Joins
-- Using a free-form join (where the JOIN type isn't specified, equivalent to an inner join), join the`parts` and `part_categories` tables. Filter for values where the `part_categories` id matches the `parts` `part_cat_id`, and where the name of the part contains the word 'Werewolf'.
+### Part 2:
+  The data set I chose to work with for my visualization was "Iowa Liquor Sales". This data set contained a lot of information : `invoice_and_item_number`, `date`, `store_number`, `store_name`, `address`, `city`, `zip_code`, `store_location`, county_number, `county`, `category`, `category_name`, `vendor_number`, `vendor_name`, `item_number` `item_description`, `pack`, `bottle_volume_ml`, `state_bottle_cost`, `state_bottle_retail`, `bottles_sold`, `sale_dollars`, `volume_sold_liters`, `volume_sold_gallons`.  
+  
+  I was interested in volume sold so I chose to make a line chart visualization for `volume_sold_liters`, reported by `date` filtered by `year`. It was interesting to see a significant spike in volume sold by liter in the year `2021` followed by a decrease in `2022`  
+  
+  ![Iowa_Liquor_Sales](images/Iowa_Liquor_Sales.png)
 
 ## Setup/Installation Requirements
 
 * Clone by inputting following into terminal: 
   ```bash
-  git clone https://github.com/Drewrwhite/data_week_6.git
+  git clone https://github.com/Drewrwhite/data_week_7.git
   ```
 * Navigate to directory:
   ```bash
@@ -60,22 +48,6 @@ Joins
 * Open directory in VSCode:
   ```bash
   code .
-  ```
-  * Initiate connection to MariaDB:
-  ```bash
-  ./start_db.sh
-  ```
-  * Connect to MariaDB:
-  ```bash
-  ./connect_db.sh
-  ```
-  * Verify connection with:
-  ```bash
-  docker ps
-  ```
-  * When done:
-  ```bash
-  ./stop_db.sh
   ```
 </br>
 
@@ -87,14 +59,10 @@ Joins
 
 ## License
 
-MIT License
+[MIT](./license.txt)
 
-Copyright (c) 2022 Drew White
+_If you find any issues, please reach out at: **d.white0002@gmail.com**._
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Copyright (c) _2022_ _Drew White_
 
 </br>
