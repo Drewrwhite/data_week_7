@@ -29,7 +29,7 @@
 * In `main.ipynb` writes Python code: `.get_table()` to verify schema of `flower_shop`.
 
 ### Part 2:
-  The data set I chose to work with for my visualization was "Iowa Liquor Sales". This data set contained a lot of information : `invoice_and_item_number`, `date`, `store_number`, `store_name`, `address`, `city`, `zip_code`, `store_location`, county_number, `county`, `category`, `category_name`, `vendor_number`, `vendor_name`, `item_number` `item_description`, `pack`, `bottle_volume_ml`, `state_bottle_cost`, `state_bottle_retail`, `bottles_sold`, `sale_dollars`, `volume_sold_liters`, `volume_sold_gallons`.  
+  The data set I chose to work with for my visualization was "Iowa Liquor Sales". This data set contained a lot of information : `invoice_and_item_number`, `date`, `store_number`, `store_name`, `address`, `city`, `zip_code`, `store_location`, `county_number`, `county`, `category`, `category_name`, `vendor_number`, `vendor_name`, `item_number` `item_description`, `pack`, `bottle_volume_ml`, `state_bottle_cost`, `state_bottle_retail`, `bottles_sold`, `sale_dollars`, `volume_sold_liters`, `volume_sold_gallons`.  
   
   I was interested in volume sold so I chose to make a line chart visualization for `volume_sold_liters`, reported by `date` filtered by `year`. It was interesting to see a significant spike in volume sold by liter in the year `2021` followed by a decrease in `2022`  
   
